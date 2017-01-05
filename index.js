@@ -20,6 +20,6 @@ app.get("/hello", paywall.guard(1000, function (req, res) {
     res.end("Hello, meat world!");
 }));
 
-app.listen(80, function(_) {
+app.listen(8080, function(_) {
     console.log(`Waiting at ${BASE}/hello`);
 });
