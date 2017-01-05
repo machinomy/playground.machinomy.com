@@ -7,8 +7,6 @@ const express    = require("express"),
 const BASE = "http://playground.machinomy.com";
 
 const settings = machinomy.configuration.receiver();
-machinomy.web3.personal.unlockAccount(settings.account, settings.password, 1000);
-
 let paywall = new machinomy.Paywall(settings.account, BASE);
 
 let app = express();

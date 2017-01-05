@@ -104,6 +104,7 @@
       git:
         repo: git@github.com:machinomy/playground.machinomy.com.git
         dest: "{{site_dir}}"
+        update: yes
         accept_hostkey: yes
 
     - name: Install npm dependencies
