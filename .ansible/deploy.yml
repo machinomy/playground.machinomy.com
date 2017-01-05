@@ -138,3 +138,39 @@
         state: started
         enabled: yes
         name: playground
+
+    - name: Install nginx
+      apt:
+        pkg: nginx
+        state: installed
+      become: yes
+      become_user: root
+
+    - name: Deactivate the default nginx site
+      file:
+        path: /etc/nginx/sites-enabled/default
+        state: absent
+      become: yes
+      become_user: root
+
+    - name: Copy the site config
+      template:
+        src: templates/site.conf.j2
+        dest: "/etc/nginx/sites-available/{{site_name}}.conf"
+      become: yes
+      become_user: root
+
+    - name: Activate the site
+      file:
+        src: "/etc/nginx/sites-available/{{site_name}}.conf"
+        dest: "/etc/nginx/sites-enabled/{{site_name}}.conf"
+        state: link
+      become: yes
+      become_user: root
+
+    - name: Reload nginx
+      service:
+        name: nginx
+        state: reloaded
+      become: yes
+      become_user: root

@@ -1,10 +1,10 @@
 server {
   listen      *:80;
 
-  server_name playground.machinomy.com;
-  root        {{site_dir}};
+  server_name {{ site_name }};
+  root        {{ site_dir }};
 
-  access_log  /var/log/nginx/{{site_name}}.log;
+  access_log  /var/log/nginx/{{ site_name }}.log;
 
   client_max_body_size 10000k;
 
