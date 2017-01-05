@@ -1,0 +1,10 @@
+[Unit]
+Description=Playground Node
+After=syslog.target network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/env node /srv/www/playground.machinomy.com/index.js
+
+[Install]
+WantedBy=default.target

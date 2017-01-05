@@ -3,12 +3,52 @@
   gather_facts: True
 
   vars:
-    nodejs_version: "7"
-    debian_repo_version: "7.x"
+    nodejs_version: "6"
+    debian_repo_version: "6.x"
     site_name: playground.machinomy.com
     site_dir: "/srv/www/{{site_name}}"
 
   tasks:
+
+    - name: Install  software-properties-common
+      apt:
+        name: software-properties-common
+        update_cache: yes
+      become: true
+
+    - name: Set up ethereum PPA
+      apt_repository:
+        repo: "ppa:ethereum/ethereum"
+        update_cache: yes
+      become: true
+
+    - name: Install geth
+      apt:
+        name: ethereum
+      become: true
+
+    - file:
+        path: ~/.local/share/systemd/user
+        state: directory
+
+    - copy:
+        src: files/geth.service
+        dest: ~/.local/share/systemd/user/geth.service
+
+    - copy:
+        src: files/UTC--2017-01-05T22-19-31.803427098Z--db9c908904a93b7710db2e27a4d69b12e4a38daf
+        dest: ~/.ethereum/testnet/keystore/UTC--2017-01-05T22-19-31.803427098Z--db9c908904a93b7710db2e27a4d69b12e4a38daf
+
+    - systemd:
+        enabled: no
+        user: yes
+        name: geth
+
+    - systemd:
+        user: yes
+        state: started
+        enabled: yes
+        name: geth
 
     - name: Ensure the system can use the HTTPS transport for APT
       stat:
@@ -71,9 +111,29 @@
       args:
         chdir: "{{site_dir}}"
 
-    - name: Install pm2
-      command: npm install -g pm2
-      args:
-        chdir: "{{site_dir}}"
+    - file:
+        path: ~/.machinomy
+        state: directory
 
+    - copy:
+        src: files/config.json
+        dest: ~/.machinomy/config.json
 
+    - file:
+        path: ~/.local/share/systemd/user
+        state: directory
+
+    - copy:
+        src: files/playground.service
+        dest: ~/.local/share/systemd/user/playground.service
+
+    - systemd:
+        enabled: no
+        user: yes
+        name: playground
+
+    - systemd:
+        user: yes
+        state: started
+        enabled: yes
+        name: playground

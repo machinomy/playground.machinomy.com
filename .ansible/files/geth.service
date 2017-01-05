@@ -1,0 +1,10 @@
+[Unit]
+Description=Ethereum Node
+After=syslog.target network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/geth --testnet --rpc --rpcport 8545 --rpccorsdomain * --ipcapi admin,db,eth,debug,miner,net,shh,txpool,personal,web3 --rpcapi db,eth,net,web3
+
+[Install]
+WantedBy=default.target
