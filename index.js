@@ -1,7 +1,7 @@
 "use strict";
 
 const express    = require("express"),
-      bodyParser = require('body-parser'),
+      bodyParser = require("body-parser"),
       machinomy  = require("machinomy");
 
 const BASE = "http://playground.machinomy.com";
