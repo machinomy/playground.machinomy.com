@@ -11,15 +11,15 @@ const HEADER_NAME = 'authorization'
 const TOKEN_NAME = 'paywall'
 const PREFIX = '/.well-known/machinomy'
 
-function acceptUrl(base: URL) {
+function acceptUrl (base: URL) {
   return urljoin(base.toString(), PREFIX, 'accept')
 }
 
-function isAcceptUrl(url: string) {
+function isAcceptUrl (url: string) {
   return url === PREFIX + '/accept'
 }
 
-const paywallHeaders = (receiverAccount: string, gatewayUri: string, price: BigNumber.BigNumber) => {
+function paywallHeaders (receiverAccount: string, gatewayUri: string, price: BigNumber.BigNumber) {
   let headers = {} as any
   headers['Paywall-Version'] = '0.1'
   headers['Paywall-Price'] = price

@@ -12,9 +12,9 @@
     truffle-contract "^3.0.0"
     web3 "^0.20.1"
 
-"@machinomy/hdwallet-provider@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@machinomy/hdwallet-provider/-/hdwallet-provider-1.0.1.tgz#d24757057b47abe3faa75e6985a4d95cccb32368"
+"@machinomy/hdwallet-provider@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@machinomy/hdwallet-provider/-/hdwallet-provider-1.1.0.tgz#800ef5bccb542549b2bd59d16797b553be72d9a5"
   dependencies:
     bip39 "^2.5.0"
     eth-hd-keyring "^1.2.2"
