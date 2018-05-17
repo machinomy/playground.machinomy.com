@@ -36,7 +36,7 @@ async function main () {
     res.end('Thank you for the payment!')
   }))
 
-  app.listen(PORT, HOST, () => {
+  app.listen(PORT, () => {
     console.log(`Waiting at http://${HOST}:${PORT}/hello`)
   })
 }
