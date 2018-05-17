@@ -17,12 +17,12 @@ async function main () {
 
   const MNEMONIC = String(process.env.MNEMONIC).trim()
   const PROVIDER_URL = String(process.env.PROVIDER_URL)
+  const DATABASE_URL = String(process.env.DATABASE)
 
   const provider = new HDWalletProvider(MNEMONIC, PROVIDER_URL)
   const web3 = new Web3(provider)
   const account = await provider.getAddress(0)
-  console.log('account', account)
-  const machinomy = new Machinomy(account, web3, { databaseUrl: 'sqlite:///tmp/playground' })
+  const machinomy = new Machinomy(account, web3, { databaseUrl: DATABASE_URL })
   const base = new url.URL(`http://${HOST}:${PORT}`)
   const paywall = new Paywall(machinomy, account, base)
 
