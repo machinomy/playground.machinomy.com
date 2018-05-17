@@ -3,14 +3,27 @@
   "version": "1.0.0",
   "description": "Example Machinomy dapplications",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "Sergey Ukustov",
   "license": "Apache-2.0",
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "clean": "rm -rf dist/",
+    "lint": "tslint --format stylish --project . --exclude './node_modules/**/*.ts'",
+    "prepublish": "yarn lint && yarn build --outDir dist/"
+  },
   "dependencies": {
-    "body-parser": "^1.15.2",
+    "@machinomy/hdwallet-provider": "^1.0.1",
+    "@types/dotenv": "^4.0.3",
+    "@types/morgan": "^1.7.35",
+    "@types/url-join": "^0.8.2",
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
     "express": "^4.14.0",
-    "machinomy": "0.0.8"
+    "machinomy": "^1.8.1",
+    "morgan": "^1.9.0",
+    "tslint": "^5.10.0",
+    "tslint-config-standard": "^7.0.0",
+    "typescript": "^2.8.3",
+    "url-join": "^4.0.0"
   }
 }
