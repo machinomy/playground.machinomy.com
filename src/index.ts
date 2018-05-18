@@ -23,7 +23,7 @@ async function main () {
   const web3 = new Web3(provider)
   const account = await provider.getAddress(0)
   const machinomy = new Machinomy(account, web3, { databaseUrl: DATABASE_URL })
-  const base = new url.URL(`http://${HOST}:${PORT}`)
+  const base = new url.URL(`https://${HOST}`)
   const paywall = new Paywall(machinomy, account, base)
 
   let app = express()
@@ -37,7 +37,7 @@ async function main () {
   }))
 
   app.listen(PORT, () => {
-    console.log(`Waiting at http://${HOST}:${PORT}/hello`)
+    console.log(`Waiting at http://${HOST}/hello`)
   })
 }
 
