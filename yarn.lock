@@ -69,12 +69,6 @@
   dependencies:
     "@types/node" "*"
 
-"@types/ethereumjs-util@^5.1.1":
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/@types/ethereumjs-util/-/ethereumjs-util-5.1.1.tgz#a074780ebbc0abb6de42aac99ea597fd0b157dcf"
-  dependencies:
-    "@types/node" "*"
-
 "@types/events@*":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@types/events/-/events-1.2.0.tgz#81a6731ce4df43619e5c8c945383b3e62a89ea86"
@@ -2256,16 +2250,15 @@ ltgt@~2.2.0:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/ltgt/-/ltgt-2.2.1.tgz#f35ca91c493f7b73da0e07495304f17b31f87ee5"
 
-machinomy@^1.9.1:
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/machinomy/-/machinomy-1.9.1.tgz#de60b5295458d7878a2a5fd031bc53126fbeaa06"
+machinomy@^1.9.2:
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/machinomy/-/machinomy-1.9.2.tgz#02ad8b0c75951cbf2843543b8c6c53a2238fd180"
   dependencies:
     "@machinomy/contracts" "^4.0.5"
     "@machinomy/types-bn" "^0.0.3"
     "@machinomy/types-truffle-contract" "^0.0.3"
     "@machinomy/types-web3" "^0.0.4"
     "@types/bignumber.js" "^4.0.2"
-    "@types/ethereumjs-util" "^5.1.1"
     bignumber.js "^4.1.0"
     commander "^2.9.0"
     debug "^3.1.0"
