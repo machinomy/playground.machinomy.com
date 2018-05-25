@@ -9,7 +9,7 @@ const log = debug('paywall')
 
 const HEADER_NAME = 'authorization'
 const TOKEN_NAME = 'paywall'
-const PREFIX = '/.well-known/machinomy'
+const PREFIX = '/v1'
 
 function acceptUrl (base: URL) {
   return urljoin(base.toString(), PREFIX, 'accept')
