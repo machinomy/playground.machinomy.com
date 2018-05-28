@@ -2,7 +2,7 @@ import * as BigNumber from 'bignumber.js'
 import * as debug from 'debug'
 import * as express from 'express'
 import * as urljoin from 'url-join'
-import Machinomy from 'machinomy'
+import Machinomy, { AcceptTokenResponse } from 'machinomy'
 import { URL } from 'url'
 
 const log = debug('paywall')
@@ -69,8 +69,8 @@ export default class Paywall {
         log(error)
         this.paymentRequired(fixedPrice, req, res)
       } else {
-        this.machinomy.acceptToken({ token }).then(isOk => {
-          if (isOk) {
+        this.machinomy.acceptToken({ token }).then((acceptTokenResponse: AcceptTokenResponse) => {
+          if (acceptTokenResponse.status) {
             log('Got valid paywall token')
             callback(req, res, next)
           } else {
