@@ -5,6 +5,7 @@ import HDWalletProvider from '@machinomy/hdwallet-provider'
 import Paywall from './Paywall'
 import * as morgan from 'morgan'
 import * as url from 'url'
+import * as BigNumber from 'bignumber.js'
 
 async function main () {
   dotenv.config()
@@ -27,7 +28,7 @@ async function main () {
   app.use(paywall.middleware())
   app.use(morgan('combined'))
 
-  app.get('/hello', paywall.guard((req, res) => {
+  app.get('/hello', paywall.guard(new BigNumber.BigNumber(1000), (req, res) => {
     res.end('Thank you for the payment!')
   }))
 
