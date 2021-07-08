@@ -5,3 +5,7 @@ src/*.js
 src/*.js.map
 src/*.d.ts
 .env
+.idea/
+yarn-error.log
+*.sqlite
+*.sqlite3
